@@ -312,4 +312,3 @@ Received Import Request.
 Start importing Assets/Scripts/Color.cs using Guid(309a0a443c693fc459b2b9257c2acaf7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '392bcb250288b8ccfd920f4fa83e86d4') in 0.013492 seconds 
   Import took 0.019279 seconds .
 
-AssetImportWorkerClient::OnTransportError - code=2 error=End of file
