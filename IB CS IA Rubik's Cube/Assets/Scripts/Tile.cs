@@ -12,15 +12,12 @@ public class Tile : MonoBehaviour
 
     private void Start()
     {
-        attachedFace = this.transform.parent.GetComponent<Face>();
-        cubeThemeManager = attachedFace.getCubeThemeManager();
-        colorOrientation = attachedFace.getOrientation();
-        setTileColor(colorOrientation);
+        
     }
 
     public Tile(string c, int x, int y) // Constructor for Tile object which assigns color and coordinates of tile
     {
-        setTileColor(c);
+        setTileColorOrientation(c);
         setCoords(x, y);
     }
 
@@ -34,7 +31,7 @@ public class Tile : MonoBehaviour
         return new int[] { xCoord, yCoord };
     }
 
-    public void setTileColor(string c) // Sets the color orientation of the tile
+    public void setTileColorOrientation(string c) // Sets the color orientation of the tile
     {
         colorOrientation = c;
         Material tempM;
@@ -71,4 +68,25 @@ public class Tile : MonoBehaviour
         xCoord = x;
         yCoord = y;
    }
+
+   private void initializeCoords()
+   {
+        string objectName = this.gameObject.name;
+        string coords = objectName = objectName.Substring(objectName.IndexOf("("));
+        coords = coords.Trim();
+        xCoord = int.Parse(coords.Substring(1, 1));
+        yCoord = int.Parse(coords.Substring(3, 1));
+   }
+
+   public void initializeTile()
+   {
+        attachedFace = this.transform.parent.GetComponent<Face>();
+        cubeThemeManager = attachedFace.getCubeThemeManager();
+        colorOrientation = attachedFace.getOrientation();
+        setTileColorOrientation(colorOrientation);
+        initializeCoords();
+    }
+
+
+
 }

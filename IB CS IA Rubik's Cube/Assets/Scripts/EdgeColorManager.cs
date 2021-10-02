@@ -9,6 +9,12 @@ public class EdgeColorManager : MonoBehaviour
     [SerializeField] private Material material;
     private void Start()
     {
+        
+
+    }
+
+    public void initializeEdgeColors()
+    {
         cubeThemeManager = this.GetComponentInParent<CubeThemeManager>();
         color = cubeThemeManager.getEdgeColor();
         material = cubeThemeManager.getEdgeMaterial();
@@ -18,6 +24,5 @@ public class EdgeColorManager : MonoBehaviour
         {
             mR.material = material;
         }
-
     }
 }
