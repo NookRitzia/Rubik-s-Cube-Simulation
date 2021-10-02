@@ -4,9 +4,15 @@ using UnityEngine;
 
 public class Face : MonoBehaviour
 {
-    private Tile[][] tiles;
-    private Color centerColor;
-    private string orientation;
+    [SerializeField] private Tile[][] tiles;
+    //[SerializeField] private Color centerColor;
+    [SerializeField] private string orientation;
+    [SerializeField] protected CubeThemeManager cubeThemeManager;
+
+    private void Start()
+    {
+        cubeThemeManager = this.gameObject.GetComponentInParent<CubeThemeManager>();
+    }
 
     public Face(Tile[][] t, string o)
     {
@@ -14,14 +20,14 @@ public class Face : MonoBehaviour
         setOrientation(o);
     }
 
-    public Color getCenterColor()
+    public CubeThemeManager getCubeThemeManager()
     {
-        return centerColor;
+        return cubeThemeManager;
     }
-
-    public Color getTileColor(int x, int y)
+    
+    public string getTileColorOrientation(int x, int y)
     {
-        return tiles[x][y].getColor();
+        return tiles[x][y].getColorOrientation();
     }
 
     public string getOrientation()
@@ -34,7 +40,7 @@ public class Face : MonoBehaviour
         orientation = o;
     }
 
-    public void setTileColor(int x, int y, Color c)
+    public void setTileColorOrientation(int x, int y, string c)
     {
         tiles[x][y].setTileColor(c);
     }
