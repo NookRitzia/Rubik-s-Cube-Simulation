@@ -11,7 +11,7 @@ public class Face : MonoBehaviour
 
     private void Start()
     {
-        cubeThemeManager = this.gameObject.GetComponentInParent<CubeThemeManager>();
+        
     }
 
     private void Update()
@@ -29,6 +29,11 @@ public class Face : MonoBehaviour
     public CubeThemeManager getCubeThemeManager()
     {
         return cubeThemeManager;
+    }
+
+    public void initializeCubeThemeManager()
+    {
+        cubeThemeManager = this.gameObject.GetComponentInParent<CubeThemeManager>();
     }
     
     public string getTileColorOrientation(int x, int y)

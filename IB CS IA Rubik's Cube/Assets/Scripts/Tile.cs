@@ -35,7 +35,6 @@ public class Tile : MonoBehaviour
     {
         colorOrientation = c;
         Material tempM;
-
         switch (c){
             case "TOP":
                 tempM = cubeThemeManager.getTopMaterial();

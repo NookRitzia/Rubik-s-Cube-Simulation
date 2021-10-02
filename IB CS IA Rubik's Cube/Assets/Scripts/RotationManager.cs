@@ -76,7 +76,7 @@ public class RotationManager : MonoBehaviour
 
     public void rotateRight(int count)
     {
-        for (int c = 0; c < count; count++)
+        for (int c = 0; c < count; c++)
         {
             for (int i = 0; i < 3; i++)
             {
@@ -96,7 +96,7 @@ public class RotationManager : MonoBehaviour
 
     public void rotateFront(int count)
     {
-        for (int c = 0; c < count; count++)
+        for (int c = 0; c < count; c++)
         {
             for (int i = 0; i < 3; i++)
             {

@@ -13,12 +13,14 @@ public class CubeInitializationManager : MonoBehaviour
 
         foreach (Face face in faces)
         {
+            face.initializeCubeThemeManager();
             Tile[] tiles = face.GetComponentsInChildren<Tile>();
             foreach (Tile tile in tiles)
             {
                 tile.initializeTile();
             }
             face.initializeTiles();
+            
         }
     }
 }
