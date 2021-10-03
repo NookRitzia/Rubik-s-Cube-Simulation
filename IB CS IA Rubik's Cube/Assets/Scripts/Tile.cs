@@ -85,7 +85,4 @@ public class Tile : MonoBehaviour
         setTileColorOrientation(colorOrientation);
         initializeCoords();
     }
-
-
-
 }
