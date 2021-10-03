@@ -245,6 +245,18 @@ MonoBehaviour:
   timeElapsed: 0
   startTime: 0
   timerText: {fileID: 1831552479}
+--- !u!114 &917062519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917062512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51dc5261a8bdf9849962dbe76d9644ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &959329735
 GameObject:
   m_ObjectHideFlags: 0

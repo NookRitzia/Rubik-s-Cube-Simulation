@@ -19,7 +19,7 @@ public class CompletionTimerManager : MonoBehaviour
 
     private void Update()
     {
-        timeElapsed = Time.time - startTime + 50;
+        timeElapsed = Time.time - startTime;
         ifSolved = isCubeSolved();
         Debug.Log(ifSolved);
         setTimer();
@@ -53,7 +53,6 @@ public class CompletionTimerManager : MonoBehaviour
                 ms = "0" + ms;
             ms = ms.Substring(0, 2);
             timerText.text = minutes + ":" + seconds + ":" + ms;
-            Debug.Log(ms);
         }
     }
 }
