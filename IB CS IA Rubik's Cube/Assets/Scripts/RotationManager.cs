@@ -94,7 +94,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateFront(int count)
+    public void rotateFront(int count) // need to fix
     {
         for (int c = 0; c < count; c++)
         {
@@ -108,7 +108,7 @@ public class RotationManager : MonoBehaviour
 
             for (int x = 0; x < 3; x++)
                 for (int y = 0; y < 3; y++)
-                    getFace("FRONT").setTileColorOrientation(x, y, frontColorOrientation[2 - y, x]);
+                    getFace("FRONT").setTileColorOrientation(x, y, frontColorOrientation[y, 2 - x]);
 
             updateColorOrientation();
         }
