@@ -85,4 +85,10 @@ public class Tile : MonoBehaviour
         setTileColorOrientation(colorOrientation);
         initializeCoords();
     }
+
+    private string randomOrientation()
+    {
+        string[] orientations = new string[] {"TOP", "BOTTOM", "LEFT", "RIGHT", "FRONT", "BACK"};
+        return orientations[Random.Range(0, 6)];
+    }
 }

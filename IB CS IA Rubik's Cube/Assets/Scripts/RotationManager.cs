@@ -98,17 +98,18 @@ public class RotationManager : MonoBehaviour
     {
         for (int c = 0; c < count; c++)
         {
+            // needs fixing
             for (int i = 0; i < 3; i++)
             {
-                getFace("TOP").setTileColorOrientation(i, 0, rightColorOrientation[0, 2 - i]);
-                getFace("LEFT").setTileColorOrientation(2, i, topColorOrientation[i, 0]);
-                getFace("BOTTOM").setTileColorOrientation(i, 2, leftColorOrientation[2, 2 - i]);
-                getFace("RIGHT").setTileColorOrientation(0, i, bottomColorOrientation[i, 2]);
+                getFace("TOP").setTileColorOrientation(i, 0, leftColorOrientation[0, 2 - i]); // needs updating
+                getFace("LEFT").setTileColorOrientation(2, i, bottomColorOrientation[i, 0]); // needs updating
+                getFace("BOTTOM").setTileColorOrientation(i, 2, rightColorOrientation[2, 2 - i]); // needs update
+                getFace("RIGHT").setTileColorOrientation(i, 0, topColorOrientation[0, 2 - i]); // done 
             }
 
             for (int x = 0; x < 3; x++)
                 for (int y = 0; y < 3; y++)
-                    getFace("FRONT").setTileColorOrientation(x, y, frontColorOrientation[y, 2 - x]);
+                    getFace("FRONT").setTileColorOrientation(x, y, frontColorOrientation[2 - y, x]);
 
             updateColorOrientation();
         }
