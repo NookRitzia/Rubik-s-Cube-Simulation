@@ -103,7 +103,7 @@ public class RotationManager : MonoBehaviour
             {
                 getFace("TOP").setTileColorOrientation(i, 0, leftColorOrientation[2, i]);
                 getFace("LEFT").setTileColorOrientation(2, i, bottomColorOrientation[2 - i, 2]);
-                getFace("BOTTOM").setTileColorOrientation(i, 2, rightColorOrientation[0, 2 - i]); 
+                getFace("BOTTOM").setTileColorOrientation(i, 2, rightColorOrientation[0, i]); 
                 getFace("RIGHT").setTileColorOrientation(0, i, topColorOrientation[2 - i, 0]); 
             }
 
