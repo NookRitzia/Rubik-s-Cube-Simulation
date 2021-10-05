@@ -53,7 +53,7 @@ public class RotationManager : MonoBehaviour
         throw new System.Exception("Invalid Orientation");
     }
 
-    public void rotateTop(int count)
+    public void rotateTop(int count) // Rotates the top face of the cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -74,7 +74,7 @@ public class RotationManager : MonoBehaviour
     }
 
 
-    public void rotateRight(int count)
+    public void rotateRight(int count) // Rotates the right face of the cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -94,17 +94,17 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateFront(int count) // need to fix
+    public void rotateFront(int count) // Rotes the front face of the cube
     {
         for (int c = 0; c < count; c++)
         {
-            // needs fixing
+            
             for (int i = 0; i < 3; i++)
             {
-                getFace("TOP").setTileColorOrientation(i, 0, leftColorOrientation[0, 2 - i]); // needs updating
-                getFace("LEFT").setTileColorOrientation(2, i, bottomColorOrientation[i, 0]); // needs updating
-                getFace("BOTTOM").setTileColorOrientation(i, 2, rightColorOrientation[2, 2 - i]); // needs update
-                getFace("RIGHT").setTileColorOrientation(i, 0, topColorOrientation[0, 2 - i]); // done 
+                getFace("TOP").setTileColorOrientation(i, 0, leftColorOrientation[2, i]);
+                getFace("LEFT").setTileColorOrientation(2, i, bottomColorOrientation[2 - i, 2]);
+                getFace("BOTTOM").setTileColorOrientation(i, 2, rightColorOrientation[0, 2 - i]); 
+                getFace("RIGHT").setTileColorOrientation(0, i, topColorOrientation[2 - i, 0]); 
             }
 
             for (int x = 0; x < 3; x++)
@@ -115,13 +115,13 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateLeft(int count)
+    public void rotateLeft(int count) // Rotates the left face of the cube
     {
         for (int c = 0; c < count; c++)
         {
             for (int i = 0; i < 3; i++)
             {
-                getFace("TOP").setTileColorOrientation(0, i, backColorOrientation[2, i]);
+                getFace("TOP").setTileColorOrientation(0, i, backColorOrientation[2, 2 - i]);
                 getFace("FRONT").setTileColorOrientation(0, i, topColorOrientation[0, i]);
                 getFace("BOTTOM").setTileColorOrientation(0, i, frontColorOrientation[0, i]);
                 getFace("BACK").setTileColorOrientation(2, i, bottomColorOrientation[0, 2 - i]);
@@ -136,7 +136,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateBottom(int count)
+    public void rotateBottom(int count) // Rotates the bottom face of the cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -156,7 +156,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateBack(int count)
+    public void rotateBack(int count) // Rotates the back face of the cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -262,6 +262,6 @@ public class RotationManager : MonoBehaviour
             rotateMiddleVertical(1);
 
         if (Input.GetKeyDown(KeyCode.Semicolon))
-            randomize(30);
+            randomize(300);
     }
 }
