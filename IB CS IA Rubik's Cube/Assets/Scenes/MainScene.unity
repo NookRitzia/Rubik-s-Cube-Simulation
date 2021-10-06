@@ -257,6 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51dc5261a8bdf9849962dbe76d9644ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotationManager: {fileID: 0}
+  faceDirection: NORTH
 --- !u!1 &959329735
 GameObject:
   m_ObjectHideFlags: 0

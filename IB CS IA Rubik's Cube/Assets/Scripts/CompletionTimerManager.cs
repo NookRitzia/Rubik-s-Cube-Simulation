@@ -21,7 +21,7 @@ public class CompletionTimerManager : MonoBehaviour
     {
         timeElapsed = Time.time - startTime;
         ifSolved = isCubeSolved();
-        Debug.Log(ifSolved);
+        //Debug.Log(ifSolved);
         setTimer();
     }
 

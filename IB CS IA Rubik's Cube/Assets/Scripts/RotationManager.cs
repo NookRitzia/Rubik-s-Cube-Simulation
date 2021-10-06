@@ -53,6 +53,11 @@ public class RotationManager : MonoBehaviour
         throw new System.Exception("Invalid Orientation");
     }
 
+    public Face[] getFaces()
+    {
+        return faces;
+    }
+
     public void rotateTop(int count) // Rotates the top face of the cube
     {
         for (int c = 0; c < count; c++)
