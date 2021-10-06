@@ -23,7 +23,7 @@ public class RotationManager : MonoBehaviour
         
     }
 
-    private void updateColorOrientation()
+    public void updateColorOrientation()
     {
         topColorOrientation = getFace("TOP").getTileColorOrientations();
         bottomColorOrientation = getFace("BOTTOM").getTileColorOrientations();
@@ -31,6 +31,36 @@ public class RotationManager : MonoBehaviour
         rightColorOrientation = getFace("RIGHT").getTileColorOrientations();
         frontColorOrientation = getFace("FRONT").getTileColorOrientations();
         backColorOrientation = getFace("BACK").getTileColorOrientations();
+    }
+
+    public string[,] getTopColorOrientation()
+    {
+        return topColorOrientation;
+    }
+
+    public string[,] getBottomColorOrientation()
+    {
+        return bottomColorOrientation;
+    }
+
+    public string[,] getLeftColorOrientation()
+    {
+        return leftColorOrientation;
+    }
+
+    public string[,] getRightColorOrientation()
+    {
+        return rightColorOrientation;
+    }
+
+    public string[,] getFrontColorOrientation()
+    {
+        return frontColorOrientation;
+    }
+
+    public string[,] getBackColorOrientation()
+    {
+        return backColorOrientation;
     }
 
     public Face getFace(string orientation)
