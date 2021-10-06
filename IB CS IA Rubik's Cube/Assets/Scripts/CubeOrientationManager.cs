@@ -16,18 +16,21 @@ public class CubeOrientationManager : MonoBehaviour
         
     }
 
+    private void switchFace(string face1, string face2)
+    {
+        rotationManager.getFace(face1).setAllTileColorOrientation(rotationManager.getFace(face2).getTiles());
+    }
+
     public void rotateCubeLeft()
     {
         Face[] faces = rotationManager.getFaces();
         Face[] temp = faces;
         if (faceDirection.Equals("NORTH"))
         {
-            rotationManager.getFace("FRONT").setTiles(rotationManager.getFace("LEFT").getTiles());
+            switchFace("FRONT", "LEFT");
+            switchFace("LEFT", "BACK");
+            // need to fix all face switching need to dereference variables
             Debug.Log("RUN");
         }
     }
-
-    
-
-
 }
