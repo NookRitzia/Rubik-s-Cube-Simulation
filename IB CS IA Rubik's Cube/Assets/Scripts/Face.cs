@@ -60,11 +60,11 @@ public class Face : MonoBehaviour
         orientation = o;
     }
 
-    public void setAllTileColorOrientation(Tile[,] t)
+    public void setAllTileColorOrientation(string[,] o)
     {
         for (int x = 0; x < 3; x++)
             for (int y = 0; y < 3; y++)
-                tiles[x, y].setTileColorOrientation(t[x, y].getColorOrientation());
+                tiles[x, y].setTileColorOrientation(o[x,y]);
     }
 
     public void setTileColorOrientation(int x, int y, string c)
