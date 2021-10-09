@@ -7,13 +7,8 @@ public class EdgeColorManager : MonoBehaviour
     [SerializeField] private CubeThemeManager cubeThemeManager;
     [SerializeField] private Color color;
     [SerializeField] private Material material;
-    private void Start()
-    {
-        
 
-    }
-
-    public void initializeEdgeColors()
+    public void initializeEdgeColors() // Initializes the colors for the edges of the Rubik's Cube (anything that is not the tiles)
     {
         cubeThemeManager = this.GetComponentInParent<CubeThemeManager>();
         color = cubeThemeManager.getEdgeColor();

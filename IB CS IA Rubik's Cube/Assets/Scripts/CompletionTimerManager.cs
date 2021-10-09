@@ -5,27 +5,27 @@ using UnityEngine.UIElements;
 
 public class CompletionTimerManager : MonoBehaviour
 {
-    [SerializeField] private Face[] faces;
+    
     [SerializeField] bool ifSolved;
     [SerializeField] float timeElapsed = 0;
     [SerializeField] float startTime;
-    [SerializeField] UnityEngine.UI.Text timerText;
+    private UnityEngine.UI.Text timerText;
+    private Face[] faces;
 
-    private void Start()
+    private void Start() // Initialize reference to all faces on the Rubik's Cube and the start time
     {
         faces = this.GetComponentsInChildren<Face>();
         startTime = Time.time;
     }
 
-    private void Update()
+    private void Update() // Elapsed time is updated and displayed
     {
         timeElapsed = Time.time - startTime;
         ifSolved = isCubeSolved();
-        //Debug.Log(ifSolved);
         setTimer();
     }
 
-    public bool isCubeSolved()
+    public bool isCubeSolved() // Returns a boolean value corresponding to the solved state of the Rubik's Cube
     {
         foreach(Face f in faces)
         {
@@ -38,7 +38,7 @@ public class CompletionTimerManager : MonoBehaviour
         return true;
     }
 
-    private void setTimer()
+    private void setTimer() // Sets the text field to display the elapsed time
     {
         if (timerText != null)
         {

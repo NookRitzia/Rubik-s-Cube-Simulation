@@ -10,28 +10,17 @@ public class Tile : MonoBehaviour
     [SerializeField] private Face attachedFace;
     [SerializeField] private CubeThemeManager cubeThemeManager;
 
-    private void Start()
-    {
-        
-    }
-
-    public Tile(string c, int x, int y) // Constructor for Tile object which assigns color and coordinates of tile
-    {
-        setTileColorOrientation(c);
-        setCoords(x, y);
-    }
-
-    public string getColorOrientation() // Returns color orientation of the Tile object
+    public string getColorOrientation() // Returns orientation of the this Tile instance
     {
         return colorOrientation;
     }
 
-    public int[] getCoords() // Returns the coordinates of the Tile object
+    public int[] getCoords() // Returns the coordinates of this Tile instance
     {
         return new int[] { xCoord, yCoord };
     }
 
-    public void setTileColorOrientation(string c) // Sets the color orientation of the tile
+    public void setTileColorOrientation(string c) // Sets the color orientation of this Tile instance
     {
         colorOrientation = c;
         Material tempM;
@@ -62,13 +51,13 @@ public class Tile : MonoBehaviour
         this.gameObject.GetComponent<MeshRenderer>().material = tempM;
     }
 
-   public void setCoords(int x, int y) // Sets the coordinates of the tile
+   public void setCoords(int x, int y) // Sets the coordinates of this Tile instance
    {
         xCoord = x;
         yCoord = y;
    }
 
-   private void initializeCoords()
+   private void initializeCoords() // Initializes the coordinates of this Tile instance
    {
         string objectName = this.gameObject.name;
         string coords = objectName = objectName.Substring(objectName.IndexOf("("));
@@ -77,18 +66,12 @@ public class Tile : MonoBehaviour
         yCoord = int.Parse(coords.Substring(3, 1));
    }
 
-   public void initializeTile()
+   public void initializeTile() // Initializes this Tile instance
    {
         attachedFace = this.transform.parent.GetComponent<Face>();
         cubeThemeManager = attachedFace.getCubeThemeManager();
         colorOrientation = attachedFace.getOrientation();
         setTileColorOrientation(colorOrientation);
         initializeCoords();
-    }
-
-    private string randomOrientation()
-    {
-        string[] orientations = new string[] {"TOP", "BOTTOM", "LEFT", "RIGHT", "FRONT", "BACK"};
-        return orientations[Random.Range(0, 6)];
     }
 }

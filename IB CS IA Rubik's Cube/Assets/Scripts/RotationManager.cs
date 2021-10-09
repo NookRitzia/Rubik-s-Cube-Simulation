@@ -6,8 +6,6 @@ public class RotationManager : MonoBehaviour
 {
     private Face[] faces;
 
-
-
     private string[,] topColorOrientation;
     private string[,] bottomColorOrientation;
     private string[,] leftColorOrientation;
@@ -16,14 +14,13 @@ public class RotationManager : MonoBehaviour
     private string[,] backColorOrientation;
 
 
-    private void Start()
+    private void Start() // Assigning faces variable with a reference to the Rubik's Cube's Faces
     {
         faces = this.GetComponentsInChildren<Face>();
         updateColorOrientation();
-        
     }
 
-    public void updateColorOrientation()
+    public void updateColorOrientation() // Updates the color orientation string arrays
     {
         topColorOrientation = getFace("TOP").getTileColorOrientations();
         bottomColorOrientation = getFace("BOTTOM").getTileColorOrientations();
@@ -33,62 +30,47 @@ public class RotationManager : MonoBehaviour
         backColorOrientation = getFace("BACK").getTileColorOrientations();
     }
 
-    public string[,] getTopColorOrientation()
+    public string[,] getTopColorOrientation() // Returns the top color orientation string array
     {
         return topColorOrientation;
     }
 
-    public string[,] getBottomColorOrientation()
+    public string[,] getBottomColorOrientation() // Returns the bottom color orientation string array
     {
         return bottomColorOrientation;
     }
 
-    public string[,] getLeftColorOrientation()
+    public string[,] getLeftColorOrientation() // Returns the left color orientation string array
     {
         return leftColorOrientation;
     }
 
-    public string[,] getRightColorOrientation()
+    public string[,] getRightColorOrientation() // Returns the right color orientation string array
     {
         return rightColorOrientation;
     }
 
-    public string[,] getFrontColorOrientation()
+    public string[,] getFrontColorOrientation() // Returns the front color orientation string array
     {
         return frontColorOrientation;
     }
 
-    public string[,] getBackColorOrientation()
+    public string[,] getBackColorOrientation() // Returns the back color orientation string array
     {
         return backColorOrientation;
     }
 
-    public Face getFace(string orientation)
+    private Face getFace(string orientation) // Returns the specific Face with a certain orientation
     {
-        foreach (Face face in faces)
-        {
-            if (face.getOrientation().Equals(orientation))
-                return face;
-        }
-        throw new System.Exception("Invalid Orientation");
+        return Face.getFace(faces, orientation);
     }
 
-    public Face getFace(Face[] f, string orientation)
-    {
-        foreach (Face face in f)
-        {
-            if (face.getOrientation().Equals(orientation))
-                return face;
-        }
-        throw new System.Exception("Invalid Orientation");
-    }
-
-    public Face[] getFaces()
+    public Face[] getFaces() // Returns all faces of the Rubik's Cube as an array
     {
         return faces;
     }
 
-    public void rotateTop(int count) // Rotates the top face of the cube
+    public void rotateTop(int count) // Rotates the top face of the Rubik's Cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -109,7 +91,7 @@ public class RotationManager : MonoBehaviour
     }
 
 
-    public void rotateRight(int count) // Rotates the right face of the cube
+    public void rotateRight(int count) // Rotates the right face of the Rubik's Cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -129,7 +111,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateFront(int count) // Rotes the front face of the cube
+    public void rotateFront(int count) // Rotes the front face of the Rubik's Cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -150,7 +132,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateLeft(int count) // Rotates the left face of the cube
+    public void rotateLeft(int count) // Rotates the left face of the Rubik's Cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -171,7 +153,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateBottom(int count) // Rotates the bottom face of the cube
+    public void rotateBottom(int count) // Rotates the bottom face of the Rubik's Cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -191,7 +173,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateBack(int count) // Rotates the back face of the cube
+    public void rotateBack(int count) // Rotates the back face of the Rubik's Cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -211,7 +193,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateMiddleHorizontal(int count)
+    public void rotateMiddleHorizontal(int count) // Rotates the middle row of the Rubik's Cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -227,7 +209,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void rotateMiddleVertical(int count)
+    public void rotateMiddleVertical(int count) // Rotates the middle column of the Rubik's Cube
     {
         for (int c = 0; c < count; c++)
         {
@@ -243,7 +225,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void randomize(int rotations)
+    public void randomize(int rotations) // Randomizes the Rubik's Cube by making random rotations an (integer) rotations amount of times
     {
         int randomNum;
         for (int i = 0; i < rotations; i++)
@@ -272,9 +254,6 @@ public class RotationManager : MonoBehaviour
             }
         }
     }
-
-
-
 
     private void Update()
     {

@@ -5,21 +5,17 @@ using UnityEngine;
 public class CubeMovementController : MonoBehaviour
 {
     [SerializeField] private Vector3 defaultRotation;
-    //private GameObject cubeAttached;
     [SerializeField] private float horizontalRotationSensitivity = 1.0f;
     [SerializeField] private float verticalRotationSensitivity = 1.0f;
     [SerializeField] private float resetRate = 100f;
 
     
-   // [SerializeField] private float xRotation = 0f;
-   // [SerializeField] private float yRotation = 0f;
-    void Start()
+    void Start() // Default rotation set to the rotation of the Rubik's Cube on compilation
     {
         defaultRotation = this.gameObject.transform.rotation.eulerAngles;
     }
 
-    // Update is called once per frame
-    void Update()
+    void Update() // Handles Mouse Movement Each Frame
     {
         if (Input.GetMouseButton(0))
         {
