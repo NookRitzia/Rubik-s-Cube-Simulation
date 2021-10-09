@@ -20,27 +20,13 @@ public class CubeThemeManager : MonoBehaviour
     private Material backMaterial;
     private Material edgeMaterial;
 
-    private void Start()
+    private void Start() // Initializes material colors
     {
-
         initializeMaterials();
         updateMaterialColors();
     }
 
-    public CubeThemeManager(Color t, Color bo, Color l, Color r, Color f, Color ba)
-    {
-        setTopColor(t);
-        setBottomColor(bo);
-        setLeftColor(l);
-        setRightColor(r);
-        setFrontColor(f);
-        setBackColor(ba);
-
-        initializeMaterials();
-        updateMaterialColors();
-    }
-
-    public void updateMaterialColors()
+    public void updateMaterialColors() // Updates all material colors
     {
         topMaterial.color = topColor;
         bottomMaterial.color = bottomColor;
@@ -51,7 +37,7 @@ public class CubeThemeManager : MonoBehaviour
         edgeMaterial.color = edgeColor;
     }
 
-    private void initializeMaterials()
+    private void initializeMaterials() // Initializes all materials
     {
         topMaterial = new Material(Shader.Find("Standard"));
         bottomMaterial = new Material(Shader.Find("Standard"));
@@ -62,110 +48,110 @@ public class CubeThemeManager : MonoBehaviour
         edgeMaterial = new Material(Shader.Find("Standard"));
     }
 
-    public Color getTopColor()
+    public Color getTopColor() // Returns the top side color of the Rubik's Cube
     {
         return topColor;
     }
-    public Color getBottomColor()
+    public Color getBottomColor() // Returns the bottom side color of the Rubik's Cube
     {
         return bottomColor;
     }
-    public Color getLeftColor()
+    public Color getLeftColor() // Returns the left side color of the Rubik's Cube
     {
         return leftColor;
     }
-    public Color getRightColor()
+    public Color getRightColor() // Returns the right side color of the Rubik's Cube
     {
         return rightColor;
     }
 
-    public Color getFrontColor()
+    public Color getFrontColor() // Returns the front side color of the Rubik's Cube
     {
         return frontColor;
     }
 
-    public Color getBackColor()
+    public Color getBackColor() // Returns the back side color of the Rubik's Cube
     {
         return backColor;
     }
 
-    public Color getEdgeColor()
+    public Color getEdgeColor() // Returns the edge color of the Rubik's Cube
     {
         return edgeColor;
     }
 
-    public Material getTopMaterial()
+    public Material getTopMaterial() // Returns the top side material
     {
         return topMaterial;
     }
 
-    public Material getBottomMaterial()
+    public Material getBottomMaterial() // Returns the bottom side material
     {
         return bottomMaterial;
     }
 
-    public Material getLeftMaterial()
+    public Material getLeftMaterial() // Returns the left side material
     {
         return leftMaterial;
     }
 
-    public Material getRightMaterial()
+    public Material getRightMaterial() // Returns the right side material
     {
         return rightMaterial;
     }
 
-    public Material getFrontMaterial()
+    public Material getFrontMaterial() // Returns the front side material
     {
         return frontMaterial;
     }
 
-    public Material getBackMaterial()
+    public Material getBackMaterial() // Returns the back side material
     {
         return backMaterial;
     }
 
-    public Material getEdgeMaterial()
+    public Material getEdgeMaterial() // Returns the edge's material
     {
         return edgeMaterial;
     }
 
-    public void setTopColor(Color c)
+    public void setTopColor(Color c) // Sets the top side's color
     {
         topColor = c;
         topMaterial.color = c;
     }
 
-    public void setBottomColor(Color c)
+    public void setBottomColor(Color c) // Sets the bottom side's color
     {
         bottomColor = c;
         bottomMaterial.color = c;
     }
 
-    public void setLeftColor(Color c)
+    public void setLeftColor(Color c) // Sets the left side's color
     {
         leftColor = c;
         leftMaterial.color = c;
     }
 
-    public void setRightColor(Color c)
+    public void setRightColor(Color c) // Sets the right side's color
     {
         rightColor = c;
         rightMaterial.color = c;
     }
 
-    public void setFrontColor(Color c)
+    public void setFrontColor(Color c) // Sets the front side's color
     {
         frontColor = c;
         frontMaterial.color = c;
     }
 
-    public void setBackColor(Color c)
+    public void setBackColor(Color c) // Sets the back side's color
     {
         backColor = c;
         backMaterial.color = c;
     }
 
-    public void setEdgeColor(Color c)
+    public void setEdgeColor(Color c) // Sets the color of the edges
     {
         edgeColor = c;
         edgeMaterial.color = c;

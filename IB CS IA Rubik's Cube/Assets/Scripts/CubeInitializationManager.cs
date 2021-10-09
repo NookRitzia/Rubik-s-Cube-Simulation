@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class CubeInitializationManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    /*
+     *  Initializes the faces, Edge Color Manager and Tiles 
+     *  associated wit the Rubik's Cube
+    */
     void Start()
     {
         Face[] faces = this.GetComponentsInChildren<Face>();
