@@ -89,4 +89,37 @@ public class Face : MonoBehaviour
         }
         throw new System.Exception("Invalid Orientation");
     }
+
+    public static string[,] rotateOrientationClockwise(string[,] o) // Rotates the orientations (passed argument) clockwise
+    {
+        string[,] rotatedOrientation = new string[3, 3];
+        for (int x = 0; x < 3; x++)
+            for (int y = 0; y < 3; y++)
+                rotatedOrientation[x, y] = o[2 - y, x];
+        return rotatedOrientation;
+    }
+
+    public static string[,] rotateOrientationCounterClockwise(string[,] o) // Rotates the orientations (passed argument) counter clockwise
+    {
+        string[,] rotatedOrientation = new string[3, 3];
+        for (int x = 0; x < 3; x++)
+            for (int y = 0; y < 3; y++)
+                rotatedOrientation[x, y] = o[y, 2 - x];
+        return rotatedOrientation;
+    }
+
+    public static string[,] rotateOrientationClockwise(string[,] o, int count)
+    {
+        for (int i = 0; i < count; i++)
+            o = rotateOrientationClockwise(o);
+        return o;
+    }
+
+    public static string[,] rotateOrientationCounterClockwise(string[,] o, int count)
+    {
+        for (int i = 0; i < count; i++)
+            o = rotateOrientationCounterClockwise(o);
+        return o;
+    }
+
 }
