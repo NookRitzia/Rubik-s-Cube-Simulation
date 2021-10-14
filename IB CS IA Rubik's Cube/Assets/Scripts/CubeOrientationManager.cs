@@ -17,7 +17,7 @@ public class CubeOrientationManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.U))
         {
-            rotateCubeClockwise();
+            rotateCubeCounterClockwise();
 
             Debug.Log("HIT");
         }
@@ -77,7 +77,7 @@ public class CubeOrientationManager : MonoBehaviour
             rotateCubeUp();
     }
 
-    public void rotateCubeClockwise()
+    public void rotateCubeClockwise() // Rotates the Rubik's cube clockwise
     {
         Face[] faces = rotationManager.getFaces();
 
@@ -97,5 +97,12 @@ public class CubeOrientationManager : MonoBehaviour
 
         rotationManager.updateColorOrientation();
     }
+
+    public void rotateCubeCounterClockwise() // Rotates the Rubik's cube counter clockwise
+    {
+        for (int i = 0; i < 3; i++)
+            rotateCubeClockwise();
+    }
+
 
 }
