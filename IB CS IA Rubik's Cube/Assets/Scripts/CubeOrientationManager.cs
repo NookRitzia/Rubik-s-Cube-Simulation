@@ -17,13 +17,13 @@ public class CubeOrientationManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.U))
         {
-            rotateCubeUp();
+            rotateCubeClockwise();
 
             Debug.Log("HIT");
         }
     }
 
-    public void rotateCubeRight() // Rotates the whole Rubik's Cube to the left
+    public void rotateCubeLeft() // Rotates the whole Rubik's Cube to the left
     {
         Face[] faces = rotationManager.getFaces();
 
@@ -36,7 +36,7 @@ public class CubeOrientationManager : MonoBehaviour
 
         Face.getFace(faces, "FRONT").setAllTileColorOrientation(leftOrientation);
         Face.getFace(faces, "LEFT").setAllTileColorOrientation(backOrientation);
-        Face.getFace(faces, "BACK").setAllTileColorOrientation(Face.rotateOrientationClockwise(rightOrientation,1));
+        Face.getFace(faces, "BACK").setAllTileColorOrientation(rightOrientation);
         Face.getFace(faces, "RIGHT").setAllTileColorOrientation(frontOrientation);
         Face.getFace(faces, "TOP").setAllTileColorOrientation(Face.rotateOrientationCounterClockwise(topOrientation,1));
         Face.getFace(faces, "BOTTOM").setAllTileColorOrientation(Face.rotateOrientationClockwise(bottomOrientation,1));
@@ -56,12 +56,46 @@ public class CubeOrientationManager : MonoBehaviour
         string[,] backOrientation = rotationManager.getBackColorOrientation();
 
         Face.getFace(faces, "FRONT").setAllTileColorOrientation(bottomOrientation);
-        Face.getFace(faces, "LEFT").setAllTileColorOrientation(Face.rotateOrientationCounterClockWise(leftOrientation,1));
+        Face.getFace(faces, "LEFT").setAllTileColorOrientation(Face.rotateOrientationCounterClockwise(leftOrientation,1));
         Face.getFace(faces, "BACK").setAllTileColorOrientation(Face.rotateOrientationClockwise(topOrientation,2));
-        Face.getFace(faces, "RIGHT").setAllTileColorOrientation(Face.rotateOrientationClockWise(rightOrientation,1));
+        Face.getFace(faces, "RIGHT").setAllTileColorOrientation(Face.rotateOrientationClockwise(rightOrientation,1));
         Face.getFace(faces, "TOP").setAllTileColorOrientation(frontOrientation);
         Face.getFace(faces, "BOTTOM").setAllTileColorOrientation(Face.rotateOrientationClockwise(backOrientation,2));
 
         rotationManager.updateColorOrientation();
     }
+
+    public void rotateCubeRight()
+    {
+        for (int i = 0; i < 3; i++)
+            rotateCubeLeft();
+    }
+
+    public void rotateCubeDown()
+    {
+        for (int i = 0; i < 3; i++)
+            rotateCubeUp();
+    }
+
+    public void rotateCubeClockwise()
+    {
+        Face[] faces = rotationManager.getFaces();
+
+        string[,] leftOrientation = rotationManager.getLeftColorOrientation();
+        string[,] rightOrientation = rotationManager.getRightColorOrientation();
+        string[,] topOrientation = rotationManager.getTopColorOrientation();
+        string[,] bottomOrientation = rotationManager.getBottomColorOrientation();
+        string[,] frontOrientation = rotationManager.getFrontColorOrientation();
+        string[,] backOrientation = rotationManager.getBackColorOrientation();
+
+        Face.getFace(faces, "FRONT").setAllTileColorOrientation(Face.rotateOrientationClockwise(frontOrientation,1));
+        Face.getFace(faces, "LEFT").setAllTileColorOrientation(Face.rotateOrientationClockwise(bottomOrientation, 1));
+        Face.getFace(faces, "BACK").setAllTileColorOrientation(Face.rotateOrientationCounterClockwise(backOrientation, 1));
+        Face.getFace(faces, "RIGHT").setAllTileColorOrientation(Face.rotateOrientationClockwise(topOrientation, 1));
+        Face.getFace(faces, "TOP").setAllTileColorOrientation(Face.rotateOrientationClockwise(leftOrientation, 1));
+        Face.getFace(faces, "BOTTOM").setAllTileColorOrientation(Face.rotateOrientationClockwise(rightOrientation, 1));
+
+        rotationManager.updateColorOrientation();
+    }
+
 }
