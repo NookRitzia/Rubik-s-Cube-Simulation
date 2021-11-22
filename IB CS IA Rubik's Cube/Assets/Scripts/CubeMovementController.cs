@@ -8,7 +8,7 @@ public class CubeMovementController : MonoBehaviour
     [SerializeField] private float horizontalRotationSensitivity = 1.0f;
     [SerializeField] private float verticalRotationSensitivity = 1.0f;
     [SerializeField] private float resetRate = 100f;
-
+    
     
     void Start() // Default rotation set to the rotation of the Rubik's Cube on compilation
     {
