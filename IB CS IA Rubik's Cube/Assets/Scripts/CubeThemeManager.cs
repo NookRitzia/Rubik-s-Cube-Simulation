@@ -24,6 +24,7 @@ public class CubeThemeManager : MonoBehaviour
     {
         initializeMaterials();
         updateMaterialColors();
+        Debug.Log(frontColor);
     }
 
     public void updateMaterialColors() // Updates all material colors
