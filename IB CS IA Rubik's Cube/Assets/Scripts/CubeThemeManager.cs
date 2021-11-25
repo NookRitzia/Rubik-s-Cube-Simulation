@@ -22,9 +22,52 @@ public class CubeThemeManager : MonoBehaviour
 
     private void Start() // Initializes material colors
     {
+        if (PlayerPrefs.HasKey("CubeColorSet"))
+            getCubeThemeFromPrefs();
+        
         initializeMaterials();
         updateMaterialColors();
         Debug.Log(frontColor);
+    }
+
+    private void getCubeThemeFromPrefs()
+    {
+        int r = PlayerPrefs.GetInt("TOP-RED");
+        int g = PlayerPrefs.GetInt("TOP-GREEN");
+        int b = PlayerPrefs.GetInt("TOP-BLUE");
+        Color color = new Color(r/255f, g/255f, b/255f);
+        topColor = color;
+
+        r = PlayerPrefs.GetInt("BOTTOM-RED");
+        g = PlayerPrefs.GetInt("BOTTOM-GREEN");
+        b = PlayerPrefs.GetInt("BOTTOM-BLUE");
+        color = new Color(r / 255f, g / 255f, b / 255f);
+        bottomColor = color;
+
+        r = PlayerPrefs.GetInt("LEFT-RED");
+        g = PlayerPrefs.GetInt("LEFT-GREEN");
+        b = PlayerPrefs.GetInt("LEFT-BLUE");
+        color = new Color(r / 255f, g / 255f, b / 255f);
+        leftColor = color;
+
+        r = PlayerPrefs.GetInt("RIGHT-RED");
+        g = PlayerPrefs.GetInt("RIGHT-GREEN");
+        b = PlayerPrefs.GetInt("RIGHT-BLUE");
+        color = new Color(r / 255f, g / 255f, b / 255f);
+        rightColor = color;
+
+        r = PlayerPrefs.GetInt("FRONT-RED");
+        g = PlayerPrefs.GetInt("FRONT-GREEN");
+        b = PlayerPrefs.GetInt("FRONT-BLUE");
+        color = new Color(r / 255f, g / 255f, b / 255f);
+        frontColor = color;
+
+        r = PlayerPrefs.GetInt("BACK-RED");
+        g = PlayerPrefs.GetInt("BACK-GREEN");
+        b = PlayerPrefs.GetInt("BACK-BLUE");
+        color = new Color(r / 255f, g / 255f, b / 255f);
+        backColor = color;
+
     }
 
     public void updateMaterialColors() // Updates all material colors

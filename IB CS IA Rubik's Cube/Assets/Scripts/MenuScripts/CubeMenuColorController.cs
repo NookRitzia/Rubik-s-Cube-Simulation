@@ -50,11 +50,25 @@ public class CubeMenuColorController : MonoBehaviour
         PlayerPrefs.SetInt("BOTTOM-GREEN", 255);
         PlayerPrefs.SetInt("BOTTOM-BLUE", 0);
 
+        updateSliderValue();
+    }
+
+    public void updateSliderValue()
+    {
         Slider[] sliders = this.GetComponentsInChildren<Slider>();
-        Debug.Log(sliders[0]);
         foreach (Slider slider in sliders)
         {
             slider.value = slider.GetComponent<CubeMenuColorController>().getValue();
+        }
+    }
+
+    public void updateAllSliders()
+    {
+        Slider[] sliders = this.GetComponentsInChildren<Slider>();
+        foreach (Slider slider in sliders)
+        {
+            //slider.GetComponent<CubeMenuColorController>().updateSliderValue();
+            slider.GetComponent<CubeMenuColorController>().updateSlider();
         }
     }
 
@@ -66,19 +80,20 @@ public class CubeMenuColorController : MonoBehaviour
     public void updateSlider()
     {
         PlayerPrefs.SetString("CubeColorSet", "true");
+
         Slider slider = this.GetComponent<Slider>();
         int value = (int)(slider.value);
         setColorPrefs(value);
         Color c;
         switch (color) {
             case "RED":
-                c = new Color(value / 255f, 0, 0);
+                c = new Color(value / 455f, 0, 0);
                 break;
             case "GREEN":
-                c = new Color(0, value / 255f, 0);
+                c = new Color(0, value / 455f, 0);
                 break;
             case "BLUE":
-                c = new Color(0, 0, value / 255f);
+                c = new Color(0, 0, value / 455f);
                 break;
             default:
                 c = Color.white;
@@ -86,6 +101,7 @@ public class CubeMenuColorController : MonoBehaviour
         }
         fillObject.GetComponent<Image>().color = c;
         updateOutputImage();
+        Debug.Log("HIT uS");
     }
 
     public void updateOutputImage()
@@ -100,7 +116,6 @@ public class CubeMenuColorController : MonoBehaviour
 
     public void setColorPrefs(int value)
     {
-        
         PlayerPrefs.SetInt(face + "-" + color, value);
     }
 }

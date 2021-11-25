@@ -5,7 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
 {
-    
+    [SerializeField] private CubeMenuColorController cubeMenuController;
+    private void Start()
+    {
+        if (!PlayerPrefs.HasKey("CubeColorSet"))
+            cubeMenuController.setDefaultsPrefsAndSlider();
+    }
+
     public void PlaySimulation()
     {
         SceneManager.LoadScene(1);
