@@ -23,8 +23,28 @@ public class MainMenu : MonoBehaviour
         Application.Quit();  
     }
 
-   
+    public void OpenTutorial(int a)
+    {
+        string url;
+        switch (a)
+        {
+            case 0:
+                url = "https://www.rubiks.com/en-uk/rubiks-cube-3x3-guide#content1";
+                break;
+            case 1:
+                url = "https://ruwix.com/the-rubiks-cube/how-to-solve-the-rubiks-cube-beginners-method/";
+                break;
+            default:
+                url = "https://ruwix.com/the-rubiks-cube/how-to-solve-the-rubiks-cube-beginners-method/";
+                break;
+        }
+        Application.OpenURL(url);
+    }
 
+    public void SetTheme(int a)
+    {
+        PlayerPrefs.SetInt("Theme", a);
+    }
 
 
 }
