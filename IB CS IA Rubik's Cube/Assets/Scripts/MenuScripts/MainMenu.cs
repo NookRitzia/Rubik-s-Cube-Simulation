@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] private CubeMenuColorController cubeMenuController;
+    [SerializeField] private MusicController musicController;
     private void Start()
     {
         if (!PlayerPrefs.HasKey("CubeColorSet"))
@@ -46,5 +48,13 @@ public class MainMenu : MonoBehaviour
         PlayerPrefs.SetInt("Theme", a);
     }
 
+    public void SetSong(int a)
+    {
+        PlayerPrefs.SetInt("Background Music", a);
+        musicController.updateSong();
+        musicController.getAudioPlayer().enabled = false;
+        musicController.getAudioPlayer().enabled = true;
+        
+    }
 
 }
