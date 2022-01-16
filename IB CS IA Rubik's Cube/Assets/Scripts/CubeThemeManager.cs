@@ -27,7 +27,6 @@ public class CubeThemeManager : MonoBehaviour
         
         initializeMaterials();
         updateMaterialColors();
-        Debug.Log(frontColor);
     }
 
     private void getCubeThemeFromPrefs()
