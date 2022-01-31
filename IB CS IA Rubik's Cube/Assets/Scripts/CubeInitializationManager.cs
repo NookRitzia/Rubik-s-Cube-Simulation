@@ -6,7 +6,7 @@ public class CubeInitializationManager : MonoBehaviour
 {
     /*
      *  Initializes the faces, Edge Color Manager and Tiles 
-     *  associated wit the Rubik's Cube
+     *  associated with the Rubik's Cube
     */
     void Start()
     {

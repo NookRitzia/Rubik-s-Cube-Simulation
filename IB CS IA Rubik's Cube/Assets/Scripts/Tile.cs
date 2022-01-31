@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class Tile : MonoBehaviour
 {
-    [SerializeField] private string colorOrientation;
-    [SerializeField] private int xCoord;
-    [SerializeField] private int yCoord;
-    [SerializeField] private Face attachedFace;
-    [SerializeField] private CubeThemeManager cubeThemeManager;
+    [SerializeField] private string colorOrientation; // Color orientation for this tile
+    [SerializeField] private int xCoord; // The x coordinate of this tile
+    [SerializeField] private int yCoord; // The y coordinate of this tile
+    [SerializeField] private Face attachedFace; // The face attached to this tile
+    [SerializeField] private CubeThemeManager cubeThemeManager; // The cubeThemeManager script attached to this tile
 
     public string getColorOrientation() // Returns orientation of the this Tile instance
     {

@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class RotationManager : MonoBehaviour
 {
-    private Face[] faces;
+    private Face[] faces; // Array of faces
 
-    private string[,] topColorOrientation;
-    private string[,] bottomColorOrientation;
-    private string[,] leftColorOrientation;
-    private string[,] rightColorOrientation;
-    private string[,] frontColorOrientation;
-    private string[,] backColorOrientation;
+    private string[,] topColorOrientation; // Array of top tile colors [x,y]
+    private string[,] bottomColorOrientation; // Array bottom top tile colors [x,y]
+    private string[,] leftColorOrientation; // Array of left tile colors [x,y]
+    private string[,] rightColorOrientation; // Array of right tile colors [x,y]
+    private string[,] frontColorOrientation; // Array of front tile colors [x,y]
+    private string[,] backColorOrientation; // Array of back tile colors [x,y]
 
 
     private void Start() // Assigning faces variable with a reference to the Rubik's Cube's Faces
@@ -89,7 +89,6 @@ public class RotationManager : MonoBehaviour
             updateColorOrientation();
         }
     }
-
 
     public void rotateRight(int count) // Rotates the right face of the Rubik's Cube
     {
@@ -225,7 +224,7 @@ public class RotationManager : MonoBehaviour
         }
     }
 
-    public void randomize(int rotations) // Randomizes the Rubik's Cube by making random rotations an (integer) rotations amount of times
+    public void randomize(int rotations) // Scrambles the Rubik's Cube
     {
         int randomNum;
         for (int i = 0; i < rotations; i++)
