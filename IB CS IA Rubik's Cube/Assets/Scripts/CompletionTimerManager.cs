@@ -9,7 +9,7 @@ public class CompletionTimerManager : MonoBehaviour
     [SerializeField] bool ifSolved;
     [SerializeField] float timeElapsed = 0;
     [SerializeField] float startTime;
-    private UnityEngine.UI.Text timerText;
+    [SerializeField] private UnityEngine.UI.Text timerText;
     private Face[] faces;
 
     private void Start() // Initialize reference to all faces on the Rubik's Cube and the start time
@@ -18,11 +18,27 @@ public class CompletionTimerManager : MonoBehaviour
         startTime = Time.time;
     }
 
+    public void restartTimer()
+    {
+        startTime = Time.time;
+        timeElapsed = 0;
+        setTimer();
+        ifSolved = false;
+    }
+
     private void Update() // Elapsed time is updated and displayed
     {
-        timeElapsed = Time.time - startTime;
-        ifSolved = isCubeSolved();
-        setTimer();
+        
+        if (!ifSolved)
+        { 
+            timeElapsed = Time.time - startTime;
+            setTimer();
+            ifSolved = isCubeSolved();
+        }
+        else
+        {
+            timerText.text = "Congratulations! You took " + timeElapsed + " seconds to solve the Rubik's Cube!";
+        }
     }
 
     public bool isCubeSolved() // Returns a boolean value corresponding to the solved state of the Rubik's Cube

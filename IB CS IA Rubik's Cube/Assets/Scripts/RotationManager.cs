@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RotationManager : MonoBehaviour
 {
@@ -13,11 +14,14 @@ public class RotationManager : MonoBehaviour
     private string[,] frontColorOrientation; // Array of front tile colors [x,y]
     private string[,] backColorOrientation; // Array of back tile colors [x,y]
 
+    [SerializeField] private CompletionTimerManager timeManager;
+
 
     private void Start() // Assigning faces variable with a reference to the Rubik's Cube's Faces
     {
         faces = this.GetComponentsInChildren<Face>();
         updateColorOrientation();
+        randomize(1);
     }
 
     public void updateColorOrientation() // Updates the color orientation string arrays
@@ -254,27 +258,50 @@ public class RotationManager : MonoBehaviour
         }
     }
 
+    public void resetCube()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                getFace("FRONT").setTileColorOrientation(i, j, "FRONT");
+                getFace("TOP").setTileColorOrientation(i, j, "TOP");
+                getFace("BOTTOM").setTileColorOrientation(i, j, "BOTTOM");
+                getFace("LEFT").setTileColorOrientation(i, j, "LEFT");
+                getFace("RIGHT").setTileColorOrientation(i, j, "RIGHT");
+                getFace("BACK").setTileColorOrientation(i, j, "BACK");
+                updateColorOrientation();
+            }
+        }
+    }
+
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+
+        if (Input.GetKeyDown(KeyCode.W))
             rotateTop(1);
-        if (Input.GetKeyDown(KeyCode.S))
-            rotateRight(1);
         if (Input.GetKeyDown(KeyCode.D))
+            rotateRight(1);
+        if (Input.GetKeyDown(KeyCode.S))
             rotateFront(1);
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.A))
             rotateLeft(1);
-        if (Input.GetKeyDown(KeyCode.G))
+        if (Input.GetKeyDown(KeyCode.X))
             rotateBottom(1);
-        if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.Q))
             rotateBack(1);
 
-        if (Input.GetKeyDown(KeyCode.K))
-            rotateMiddleHorizontal(1);
-        if (Input.GetKeyDown(KeyCode.L))
-            rotateMiddleVertical(1);
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            resetCube();
+            randomize(1);
 
-        if (Input.GetKeyDown(KeyCode.Semicolon))
-            randomize(300);
+            timeManager.restartTimer();
+        }
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+            SceneManager.LoadScene(0);
+            
+
     }
 }

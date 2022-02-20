@@ -243,6 +243,7 @@ MonoBehaviour:
   ifSolved: 0
   timeElapsed: 0
   startTime: 0
+  timerText: {fileID: 1831552479}
 --- !u!114 &917062519
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -467,7 +468,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 106.1, y: -61.4}
+  m_AnchoredPosition: {x: -8, y: -61.4}
   m_SizeDelta: {x: 484.5, y: 116.74}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1831552479
@@ -492,12 +493,12 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: b008378c489d36d4b9e8db5d6bb9078c, type: 3}
-    m_FontSize: 102
+    m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 133
-    m_Alignment: 0
+    m_Alignment: 1
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -654,6 +655,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 519037461437548541, guid: 9599d9811ec21f64c89f1d6097ef8939, type: 3}
+      propertyPath: timeManager
+      value: 
+      objectReference: {fileID: 917062518}
     - target: {fileID: 519037461437548542, guid: 9599d9811ec21f64c89f1d6097ef8939, type: 3}
       propertyPath: edgeColor.b
       value: 0.20650256

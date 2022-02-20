@@ -15,12 +15,12 @@ public class CubeOrientationManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            rotateCubeCounterClockwise();
-
-            Debug.Log("HIT");
-        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+            rotateCubeUp();
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+            rotateCubeClockwise();
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+            rotateCubeLeft();
     }
 
     public void rotateCubeLeft() // Rotates the whole Rubik's Cube to the left
