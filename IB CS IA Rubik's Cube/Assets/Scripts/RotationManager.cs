@@ -21,7 +21,7 @@ public class RotationManager : MonoBehaviour
     {
         faces = this.GetComponentsInChildren<Face>();
         updateColorOrientation();
-        randomize(1);
+        randomize(100);
     }
 
     public void updateColorOrientation() // Updates the color orientation string arrays
@@ -292,6 +292,14 @@ public class RotationManager : MonoBehaviour
             rotateBack(1);
 
         if (Input.GetKeyDown(KeyCode.R))
+        {
+            resetCube();
+            randomize(100);
+
+            timeManager.restartTimer();
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
         {
             resetCube();
             randomize(1);
