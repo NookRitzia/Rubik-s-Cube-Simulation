@@ -298,7 +298,7 @@ public class RotationManager : MonoBehaviour
 
             timeManager.restartTimer();
         }
-        /*
+        // debug/developer feature
         if (Input.GetKeyDown(KeyCode.I))
         {
             resetCube();
@@ -306,7 +306,7 @@ public class RotationManager : MonoBehaviour
 
             timeManager.restartTimer();
         }
-        */
+        
         if (Input.GetKeyDown(KeyCode.Escape))
             SceneManager.LoadScene(0);
             
